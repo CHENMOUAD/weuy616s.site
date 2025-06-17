@@ -3,233 +3,779 @@
 <head>
 <script>
  function kma() {
-            window.open('https://www.qq.com', '_blank');
+            window.open('https://line.me/', '_blank');
         }
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>株式投資アンケート - 2025年注目株リスト無料プレゼント</title>
-    <link rel="stylesheet" href="css/77y.css"> 
+    <title>投資家コミュニティ参加調査</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .nihon-financial-community-application-wrapper {
+            font-family: 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+            background: radial-gradient(circle at 30% 20%, #0f172a 0%, #1e293b 35%, #334155 70%, #475569 100%);
+            min-height: 100vh;
+            color: #f8fafc;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .hero-banner-visual-composition-module {
+            position: relative;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .primary-content-header-typography-container {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            padding: 25px 20px; 
+            margin-bottom: 20px;
+        }
+
+        .main-headline-text-display-element {
+            font-size: clamp(22px, 5vw, 32px);
+            font-weight: 800;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.8);
+            margin-bottom: 12px;
+            letter-spacing: 0.8px;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .supporting-subtitle-descriptive-text {
+            font-size: clamp(14px, 3.5vw, 18px);
+            opacity: 0.92;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            line-height: 1.4;
+        }
+
+        .hero-image-display-element {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(248, 250, 252, 0.1);
+        }
+
+        .interactive-questionnaire-form-section-wrapper {
+            padding: 35px 20px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .inline-question-display-container {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            border-radius: 20px;
+            padding: 30px 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(248, 250, 252, 0.1);
+        }
+
+        .inline-question-title-header {
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #fbbf24;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .inline-answer-options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .inline-continue-button-wrapper {
+            text-align: center;
+        }
+
+        .inline-continue-progression-button {
+            background: linear-gradient(135deg, #059669, #047857);
+            border: none;
+            padding: 16px 35px;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(5, 150, 105, 0.3);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .inline-continue-progression-button.enabled-state {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .inline-continue-progression-button.enabled-state:hover {
+            background: linear-gradient(135deg, #047857, #059669);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.4);
+        }
+
+        .modal-overlay-backdrop-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeInModalBackdrop 0.4s ease-out;
+        }
+
+        @keyframes fadeInModalBackdrop {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-overlay-backdrop-container.active-modal-display-state {
+            display: flex;
+        }
+
+        .question-modal-dialog-content-frame {
+            background: linear-gradient(135deg, #1e293b, #334155);
+            border-radius: 20px;
+            padding: 35px 25px;
+            max-width: 90%;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(248, 250, 252, 0.1);
+            position: relative;
+            animation: slideUpModalContent 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUpModalContent {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-question-header-typography-element {
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            color: #fbbf24;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .answer-options-selection-container-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .multi-choice-selectable-option-button {
+            background: rgba(248, 250, 252, 0.08);
+            border: 2px solid #475569;
+            padding: 16px 20px;
+            border-radius: 14px;
+            color: #f8fafc;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+            position: relative;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .multi-choice-selectable-option-button:before {
+            content: '';
+            width: 18px;
+            height: 18px;
+            border: 2px solid #475569;
+            border-radius: 4px;
+            background: transparent;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .multi-choice-selectable-option-button:hover {
+            background: rgba(34, 197, 94, 0.15);
+            border-color: #22c55e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.2);
+        }
+
+        .multi-choice-selectable-option-button.selected-choice-active-state {
+            background: rgba(34, 197, 94, 0.25);
+            border-color: #22c55e;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .multi-choice-selectable-option-button.selected-choice-active-state:before {
+            background: #22c55e;
+            border-color: #22c55e;
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L6 9.793l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+        }
+
+        .modal-action-buttons-control-section {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .continue-progression-action-button,
+        .modal-close-dismissal-button {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .continue-progression-action-button {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            box-shadow: 0 6px 15px rgba(5, 150, 105, 0.3);
+        }
+
+        .continue-progression-action-button:hover {
+            background: linear-gradient(135deg, #047857, #059669);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.4);
+        }
+
+        .continue-progression-action-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .modal-close-dismissal-button {
+            background: rgba(71, 85, 105, 0.8);
+            color: #f8fafc;
+            border: 1px solid #64748b;
+        }
+
+        .modal-close-dismissal-button:hover {
+            background: rgba(100, 116, 139, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .completion-modal-overlay-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.97);
+            backdrop-filter: blur(10px);
+            z-index: 1500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeInModalBackdrop 0.4s ease-out;
+        }
+
+        .completion-modal-overlay-backdrop.visible-completion-modal-state {
+            display: flex;
+        }
+
+        .completion-modal-dialog-content-frame {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-radius: 20px;
+            padding: 45px 35px;
+            max-width: 90%;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: center;
+            animation: celebrationEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 
+                        0 0 30px rgba(245, 158, 11, 0.2);
+            border: 3px solid #fbbf24;
+            position: relative;
+            overflow: hidden;
+            color: #1f2937;
+        }
+
+        .completion-modal-dialog-content-frame:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: rotateShimmer 3s linear infinite;
+        }
+
+        @keyframes rotateShimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes celebrationEntrance {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(40px);
+            }
+            50% {
+                transform: scale(1.05) translateY(-10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .completion-celebration-emoji-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 20px;
+            animation: bounceIcon 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes bounceIcon {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-15px) scale(1.1); }
+        }
+
+        .completion-primary-headline-text {
+            font-size: clamp(22px, 5vw, 30px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            color: #1f2937;
+            text-shadow: none;
+        }
+
+        .completion-detailed-description-content {
+            font-size: clamp(16px, 4vw, 20px);
+            line-height: 1.6;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .completion-benefits-highlight-list {
+            margin: 20px 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .completion-benefits-highlight-list li {
+            margin-bottom: 12px;
+            font-size: clamp(16px, 4vw, 20px);
+            position: relative;
+            padding-left: 30px;
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .completion-benefits-highlight-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+            font-size: clamp(18px, 4.5vw, 22px);
+        }
+
+        .final-call-to-action-engagement-button {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border: none;
+            padding: 22px 45px;
+            border-radius: 25px;
+            color: white;
+            font-size: 19px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4);
+            letter-spacing: 0.8px;
+            position: relative;
+            z-index: 2;
+            text-transform: uppercase;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .final-call-to-action-engagement-button:hover {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 18px 40px rgba(245, 158, 11, 0.5);
+        }
+
+        .legal-compliance-disclosure-section-container {
+            background: rgba(30, 41, 59, 0.9);
+            padding: 30px 20px;
+            border-top: 3px solid #dc2626;
+            margin-top: 35px;
+            backdrop-filter: blur(10px);
+        }
+
+        .risk-warning-compliance-header-title {
+            font-size: clamp(16px, 4vw, 20px);
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 18px;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .legal-disclosure-detailed-list-container {
+            font-size: clamp(12px, 3vw, 15px);
+            line-height: 1.7;
+            color: #cbd5e1;
+        }
+
+        .legal-disclosure-detailed-list-container li {
+            margin-bottom: 10px;
+            list-style: none;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .legal-disclosure-detailed-list-container li:before {
+            content: "•";
+            color: #dc2626;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+
+        .footer-legal-navigation-links-section {
+            text-align: center;
+            padding: 25px 20px;
+            border-top: 1px solid rgba(203, 213, 225, 0.2);
+            margin-top: 25px;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .legal-document-anchor-link-element {
+            color: #60a5fa;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: clamp(12px, 3vw, 15px);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .legal-document-anchor-link-element:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -3px;
+            left: 50%;
+            background: #22c55e;
+            transition: all 0.3s ease;
+        }
+
+        .legal-document-anchor-link-element:hover {
+            color: #22c55e;
+            text-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+        }
+
+        .legal-document-anchor-link-element:hover:before {
+            width: 100%;
+            left: 0;
+        }
+
+        @media (max-width: 480px) {
+            .question-modal-dialog-content-frame,
+            .completion-modal-dialog-content-frame {
+                padding: 25px 20px;
+                max-width: 95%;
+            }
+            
+            .modal-action-buttons-control-section {
+                flex-direction: column;
+            }
+            
+            .continue-progression-action-button,
+            .modal-close-dismissal-button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="comprehensive-application-wrapper">
-        <header class="primary-navigation-header-container">
-            <img src="img/1.jpg" alt="投資専門家" class="magnificent-hero-image-showcase">
-            <h1 class="extraordinary-title-banner-proclamation">3パターンから診断！あなたの「投資武将タイプ」がわかる</h1>
-			
-			<h2 class="extraordinary-title-banner-proclamation">LINEで無料診断＋プロ厳選の戦略シート進呈</h2>
-        </header>
-
-        <div class="sophisticated-progress-tracking-indicator">
-            <div class="elegant-progress-visualization-bar">
-                <div class="dynamic-progress-fill-animation" id="progressBarFillElement"></div>
+    <div class="nihon-financial-community-application-wrapper">
+        <section class="hero-banner-visual-composition-module">
+            <div class="primary-content-header-typography-container">
+                <h2 class="main-headline-text-display-element">3パターンから診断！あなたの「投資武将タイプ」がわかる</h2>
+                <p class="supporting-subtitle-descriptive-text">LINEで無料診断＋プロ厳選の戦略シート進呈</p>
             </div>
-            <div class="informative-progress-text-display" id="progressTextDisplayElement">質問 0/3 完了</div>
-        </div>
+            <img src="img/1.jpg" alt="" class="hero-image-display-element">
+        </section>
 
-        <main class="interactive-questionnaire-form-container">
-            <!-- Question 1 -->
-            <section class="individual-question-presentation-module active-question-state" id="questionModuleFirst">
-                <h2 class="question-title-header-emphasis">あなたの投資スタイルは何ですか？</h2>
-                <div class="multiple-choice-option-container">
-                    <input type="checkbox" id="q1option1" class="hidden-checkbox-input-element" data-question="1">
-                    <label for="q1option1" class="custom-checkbox-input-wrapper">
-                        <span class="visual-checkbox-indicator-mark"></span>
-                        <span class="option-text-content-description">徳川家康スタイル（長期投資）</span>
-                    </label>
+        <main class="interactive-questionnaire-form-section-wrapper">
+            <div class="inline-question-display-container" id="inlineQuestionContainer">
+                <h2 class="inline-question-title-header" id="inlineQuestionTitle">あなたの投資スタイルは何ですか？</h2>
+                <div class="inline-answer-options-container" id="inlineAnswerOptions">
+                    <button class="multi-choice-selectable-option-button" onclick="selectInlineOption(this, 0)">
+                        徳川家康スタイル（長期投資）
+                    </button>
+                    <button class="multi-choice-selectable-option-button" onclick="selectInlineOption(this, 1)">
+                        織田信長スタイル（成長株重視）
+                    </button>
+                    <button class="multi-choice-selectable-option-button" onclick="selectInlineOption(this, 2)">
+                        豊臣秀吉スタイル（情報分析重視）
+                    </button>
                 </div>
-                <div class="multiple-choice-option-container">
-                    <input type="checkbox" id="q1option2" class="hidden-checkbox-input-element" data-question="1">
-                    <label for="q1option2" class="custom-checkbox-input-wrapper">
-                        <span class="visual-checkbox-indicator-mark"></span>
-                        <span class="option-text-content-description">織田信長スタイル（成長株に特化）</span>
-                    </label>
+                <div class="inline-continue-button-wrapper">
+                    <button class="inline-continue-progression-button" id="inlineContinueButton" onclick="proceedToSecondQuestion()">
+                        次へ進む
+                    </button>
                 </div>
-                <div class="multiple-choice-option-container">
-                    <input type="checkbox" id="q1option3" class="hidden-checkbox-input-element" data-question="1">
-                    <label for="q1option3" class="custom-checkbox-input-wrapper">
-                        <span class="visual-checkbox-indicator-mark"></span>
-                        <span class="option-text-content-description">豊臣秀吉スタイル（情報分析重視）</span>
-                    </label>
-                </div>
-                <button class="action-button-progression-control" id="nextButtonFirst">次へ</button>
-            </section>
-
-            <!-- Question 2 -->
-            <section class="individual-question-presentation-module" id="questionModuleSecond">
-                <h2 class="question-title-header-emphasis">最近の投資でどのような悩みがありますか？</h2>
-                <div class="multiple-choice-option-container">
-                    <input type="checkbox" id="q2option1" class="hidden-checkbox-input-element" data-question="2">
-                    <label for="q2option1" class="custom-checkbox-input-wrapper">
-                        <span class="visual-checkbox-indicator-mark"></span>
-                        <span class="option-text-content-description">市場の変動が心配で眠れない</span>
-                    </label>
-                </div>
-                <div class="multiple-choice-option-container">
-                    <input type="checkbox" id="q2option2" class="hidden-checkbox-input-element" data-question="2">
-                    <label for="q2option2" class="custom-checkbox-input-wrapper">
-                        <span class="visual-checkbox-indicator-mark"></span>
-                        <span class="option-text-content-description">税制措置がよくわからない</span>
-                    </label>
-                </div>
-                <div class="multiple-choice-option-container">
-                    <input type="checkbox" id="q2option3" class="hidden-checkbox-input-element" data-question="2">
-                    <label for="q2option3" class="custom-checkbox-input-wrapper">
-                        <span class="visual-checkbox-indicator-mark"></span>
-                        <span class="option-text-content-description">いつ売却すべきかわからない</span>
-                    </label>
-                </div>
-                <button class="action-button-progression-control" id="nextButtonSecond">次へ</button>
-            </section>
-
-            <!-- Question 3 -->
-            <section class="individual-question-presentation-module" id="questionModuleThird">
-                <h2 class="question-title-header-emphasis">どのような情報を希望しますか？</h2>
-                <div class="multiple-choice-option-container">
-                    <input type="checkbox" id="q3option1" class="hidden-checkbox-input-element" data-question="3">
-                    <label for="q3option1" class="custom-checkbox-input-wrapper">
-                        <span class="visual-checkbox-indicator-mark"></span>
-                        <span class="option-text-content-description">安定投資家のための配当投資ガイド</span>
-                    </label>
-                </div>
-                <div class="multiple-choice-option-container">
-                    <input type="checkbox" id="q3option2" class="hidden-checkbox-input-element" data-question="3">
-                    <label for="q3option2" class="custom-checkbox-input-wrapper">
-                        <span class="visual-checkbox-indicator-mark"></span>
-                        <span class="option-text-content-description">成長株を見極めるチェックリスト</span>
-                    </label>
-                </div>
-                <div class="multiple-choice-option-container">
-                    <input type="checkbox" id="q3option3" class="hidden-checkbox-input-element" data-question="3">
-                    <label for="q3option3" class="custom-checkbox-input-wrapper">
-                        <span class="visual-checkbox-indicator-mark"></span>
-                        <span class="option-text-content-description">ベテラン投資家の売買タイミング</span>
-                    </label>
-                </div>
-                <button class="action-button-progression-control" id="nextButtonThird">完了</button>
-            </section>
-
-            <!-- Completion Message -->
-            <section class="completion-celebration-message-display" id="completionMessageSection">
-                <h2 class="gratitude-expression-title">ご回答ありがとうございました！</h2>
-                <p>下記のリンクをクリックして、2025年注目株リストを無料で入手してください</p>
-                <button class="final-call-to-action-button" onclick="kma()">無料リストを受け取る</button>
-            </section>
+            </div>
         </main>
 
-        <footer class="comprehensive-legal-disclaimer-section">
-            <div class="risk-warning-notification-header">⚠️ 重要リスク提示</div>
-            <div class="detailed-disclaimer-content-list">
-                <ul>
-                    <li>本サービスは一般的な市場情報のみを提供し、投資アドバイスや推奨を構成するものではありません。</li>
-                    <li>金融市場にはリスクがあり、投資元本の一部または全部を失う可能性があります。</li>
-                    <li>表示されている例はすべて過去のデータ分析であり、将来の収益を保証するものではありません。</li>
-                    <li>投資家は自身のリスク許容度に基づいて慎重に決定すべきです。</li>
-                    <li>すべての情報は客観的事実の陳述であり、投資アドバイスを構成するものではありません。</li>
-                </ul>
+        <div class="modal-overlay-backdrop-container" id="questionModalOverlay">
+            <div class="question-modal-dialog-content-frame">
+                <h2 class="modal-question-header-typography-element" id="currentQuestionTitle"></h2>
+                <div class="answer-options-selection-container-group" id="answerOptionsContainer">
+                </div>
+                <div class="modal-action-buttons-control-section">
+                    <button class="continue-progression-action-button" id="continueButton" onclick="proceedToNextQuestionStep()" disabled>
+                        次へ進む
+                    </button>
+                    <button class="modal-close-dismissal-button" onclick="closeQuestionModal()">
+                        閉じる
+                    </button>
+                </div>
             </div>
-            <nav class="footer-legal-links-navigation">
-                <a href="privacy.html" target="_blank">プライバシーポリシー</a>
-                <a href="terms.html" target="_blank">利用規約</a>
-            </nav>
+        </div>
+
+        <div class="completion-modal-overlay-backdrop" id="completionModalOverlay">
+            <div class="completion-modal-dialog-content-frame">
+                <span class="completion-celebration-emoji-icon">🎯</span>
+                <h3 class="completion-primary-headline-text">只為有投資經驗的人準備！</h3>
+                <p class="completion-detailed-description-content">
+                    這是一個我們可以坦誠交談的社交活動，而不是談論賺錢。<br>
+                    參與者分享「失敗故事、成功秘訣和稅務策略」
+                </p>
+                <ul class="completion-benefits-highlight-list">
+                    <li>無講師</li>
+                    <li>無推銷</li>
+                    <li>可匿名參與</li>
+                </ul>
+                <button class="final-call-to-action-engagement-button" onclick="kma()">
+                    立即交流經驗
+                </button>
+            </div>
+        </div>
+
+        <section class="legal-compliance-disclosure-section-container">
+            <h3 class="risk-warning-compliance-header-title">⚠️ 重要リスク開示</h3>
+            <ul class="legal-disclosure-detailed-list-container">
+                <li>本サービスは一般的な市場情報のみを提供し、投資助言や推奨を構成するものではありません。</li>
+                <li>金融市場にはリスクが存在し、投資元本の一部または全部を失う可能性があります。</li>
+                <li>表示されている例はすべて過去のデータ分析であり、将来の収益を保証するものではありません。</li>
+                <li>投資家は自身のリスク許容度に基づいて慎重に判断してください。</li>
+                <li>すべての情報は客観的事実の陳述であり、投資助言を構成するものではありません。</li>
+            </ul>
+        </section>
+
+        <footer class="footer-legal-navigation-links-section">
+            <a href="https://www.baidu.com" class="legal-document-anchor-link-element">プライバシーポリシー</a>
+            <a href="https://www.baidu.com" class="legal-document-anchor-link-element">利用規約</a>
         </footer>
     </div>
 
     <script>
+        const questionnaireDataStructure = [
+            {
+                title: "あなたの投資スタイルは何ですか？",
+                options: [
+                    "徳川家康スタイル（長期投資）",
+                    "織田信長スタイル（成長株重視）",
+                    "豊臣秀吉スタイル（情報分析重視）"
+                ]
+            },
+            {
+                title: "最近の投資で何かお困りのことはありますか？",
+                options: [
+                    "市場の変動が心配で眠れない",
+                    "税制措置がよくわからない",
+                    "いつ売却すればいいかわからない"
+                ]
+            },
+            {
+                title: "どのような情報を求めていますか？",
+                options: [
+                    "安定投資家向け配当投資ガイド",
+                    "成長株を見極めるチェックリスト",
+                    "ベテラン投資家の売買タイミング術"
+                ]
+            }
+        ];
+
+        let currentQuestionIndexTracker = 0;
+        let selectedAnswersCollectionArray = [];
+
+        function selectInlineOption(buttonElement, optionIndex) {
+            // Clear other selections in inline question
+            const allInlineButtons = document.querySelectorAll('#inlineAnswerOptions .multi-choice-selectable-option-button');
+            allInlineButtons.forEach(btn => btn.classList.remove('selected-choice-active-state'));
+            
+            // Select current option
+            buttonElement.classList.add('selected-choice-active-state');
+            
+            // Initialize first question answers
+            selectedAnswersCollectionArray[0] = [optionIndex];
+            
+            // Enable continue button
+            const continueButton = document.getElementById('inlineContinueButton');
+            continueButton.classList.add('enabled-state');
+        }
+
+        function proceedToSecondQuestion() {
+            const continueButton = document.getElementById('inlineContinueButton');
+            if (continueButton.classList.contains('enabled-state')) {
+                currentQuestionIndexTracker = 1;
+                displayCurrentQuestionModal();
+            }
+        }
+
+        function displayCurrentQuestionModal() {
+            const questionData = questionnaireDataStructure[currentQuestionIndexTracker];
+            const modalElement = document.getElementById('questionModalOverlay');
+            const titleElement = document.getElementById('currentQuestionTitle');
+            const optionsContainer = document.getElementById('answerOptionsContainer');
+            const continueButton = document.getElementById('continueButton');
+
+            titleElement.textContent = questionData.title;
+            optionsContainer.innerHTML = '';
+
+            questionData.options.forEach((option, index) => {
+                const optionButton = document.createElement('button');
+                optionButton.className = 'multi-choice-selectable-option-button';
+                optionButton.textContent = option;
+                optionButton.onclick = () => toggleOptionSelection(optionButton, index);
+                optionsContainer.appendChild(optionButton);
+            });
+
+            continueButton.disabled = true;
+            modalElement.classList.add('active-modal-display-state');
+        }
+
+        function toggleOptionSelection(buttonElement, optionIndex) {
+            buttonElement.classList.toggle('selected-choice-active-state');
+            
+            if (!selectedAnswersCollectionArray[currentQuestionIndexTracker]) {
+                selectedAnswersCollectionArray[currentQuestionIndexTracker] = [];
+            }
+
+            const answerArray = selectedAnswersCollectionArray[currentQuestionIndexTracker];
+            const optionIndexPosition = answerArray.indexOf(optionIndex);
+
+            if (optionIndexPosition > -1) {
+                answerArray.splice(optionIndexPosition, 1);
+            } else {
+                answerArray.push(optionIndex);
+            }
+
+            updateContinueButtonState();
+        }
+
+        function updateContinueButtonState() {
+            const continueButton = document.getElementById('continueButton');
+            const hasSelectedAnswers = selectedAnswersCollectionArray[currentQuestionIndexTracker] && 
+                                     selectedAnswersCollectionArray[currentQuestionIndexTracker].length > 0;
+            continueButton.disabled = !hasSelectedAnswers;
+        }
+
+        function proceedToNextQuestionStep() {
+            currentQuestionIndexTracker++;
+            
+            if (currentQuestionIndexTracker < questionnaireDataStructure.length) {
+                displayCurrentQuestionModal();
+            } else {
+                closeQuestionModal();
+                displayCompletionModal();
+            }
+        }
+
+        function closeQuestionModal() {
+            const modalElement = document.getElementById('questionModalOverlay');
+            modalElement.classList.remove('active-modal-display-state');
+        }
+
+        function displayCompletionModal() {
+            const completionModal = document.getElementById('completionModalOverlay');
+            completionModal.classList.add('visible-completion-modal-state');
+        }
+
        
 
-        // Question management system
-        let currentQuestionIndex = 0;
-        let completedQuestions = 0;
-        const totalQuestions = 3;
-
-        const questionModules = [
-            document.getElementById('questionModuleFirst'),
-            document.getElementById('questionModuleSecond'),
-            document.getElementById('questionModuleThird')
-        ];
-
-        const nextButtons = [
-            document.getElementById('nextButtonFirst'),
-            document.getElementById('nextButtonSecond'),
-            document.getElementById('nextButtonThird')
-        ];
-
-        const progressBar = document.getElementById('progressBarFillElement');
-        const progressText = document.getElementById('progressTextDisplayElement');
-        const completionSection = document.getElementById('completionMessageSection');
-
-        // Initialize progress tracking
-        function updateProgressIndicator() {
-            const progressPercentage = (completedQuestions / totalQuestions) * 100;
-            progressBar.style.width = progressPercentage + '%';
-            progressText.textContent = `質問 ${completedQuestions}/${totalQuestions} 完了`;
-        }
-
-        // Check if any option in current question is selected
-        function validateCurrentQuestion(questionNumber) {
-            const checkboxes = document.querySelectorAll(`input[data-question="${questionNumber}"]`);
-            return Array.from(checkboxes).some(checkbox => checkbox.checked);
-        }
-
-        // Enable/disable next button based on selection
-        function toggleNextButtonState(questionIndex) {
-            const isValid = validateCurrentQuestion(questionIndex + 1);
-            nextButtons[questionIndex].classList.toggle('enabled-interaction-state', isValid);
-        }
-
-        // Add event listeners for all checkboxes
-        document.querySelectorAll('.hidden-checkbox-input-element').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                const questionNumber = parseInt(this.dataset.question);
-                toggleNextButtonState(questionNumber - 1);
-            });
+        // Prevent zoom functionality on mobile devices
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
         });
 
-        // Next button event handlers
-        nextButtons[0].addEventListener('click', function() {
-            if (!validateCurrentQuestion(1)) return;
-            
-            questionModules[0].style.display = 'none';
-            questionModules[1].style.display = 'block';
-            questionModules[1].classList.add('active-question-state');
-            completedQuestions = 1;
-            currentQuestionIndex = 1;
-            updateProgressIndicator();
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
         });
 
-        nextButtons[1].addEventListener('click', function() {
-            if (!validateCurrentQuestion(2)) return;
-            
-            questionModules[1].style.display = 'none';
-            questionModules[2].style.display = 'block';
-            questionModules[2].classList.add('active-question-state');
-            completedQuestions = 2;
-            currentQuestionIndex = 2;
-            updateProgressIndicator();
+        let lastTouchEndTimestamp = 0;
+        document.addEventListener('touchend', function(event) {
+            const currentTimestamp = (new Date()).getTime();
+            if (currentTimestamp - lastTouchEndTimestamp <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEndTimestamp = currentTimestamp;
+        }, false);
+
+        // Close modal when clicking overlay
+        document.getElementById('questionModalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQuestionModal();
+            }
         });
 
-        nextButtons[2].addEventListener('click', function() {
-            if (!validateCurrentQuestion(3)) return;
-            
-            questionModules[2].style.display = 'none';
-            completionSection.classList.add('visible-completion-state');
-            completedQuestions = 3;
-            updateProgressIndicator();
-        });
-
-        // Initialize the application
-        updateProgressIndicator();
-
-        // Dark mode detection
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-        }
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
+        document.getElementById('completionModalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.remove('visible-completion-modal-state');
             }
         });
     </script>
