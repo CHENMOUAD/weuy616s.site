@@ -9,7 +9,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>2025</title>
+    <title>投資大名タイプ診断 - 無料LINE診断サービス</title>
     <style>
         * {
             margin: 0;
@@ -637,7 +637,7 @@
         <div class="individual-question-presentation-card-wrapper">
             <h2 class="dynamic-question-title-header-element" id="currentQuestionTitleDisplay"></h2>
             <div class="selectable-options-grid-layout-system" id="questionOptionsGridContainer"></div>
-            <button class="question-progression-navigation-control-button" id="proceedToNextQuestionButton" onclick="proceedToNextDiagnosticQuestion()" disabled>次へ</button>
+            <button class="question-progression-navigation-control-button" id="proceedToNextQuestionButton" onclick="proceedToNextDiagnosticQuestion()" disabled>「次へ進む」</button>
         </div>
     </div>
 
@@ -651,8 +651,7 @@
             </p>
             <div class="exclusive-benefits-features-showcase-grid">
                 <div class="individual-benefit-feature-highlight-item">✓ 講師なし</div>
-                <div class="individual-benefit-feature-highlight-item">✓ 営業なし</div>
-                <div class="individual-benefit-feature-highlight-item">✓ 匿名参加可能</div>
+                <div class="individual-benefit-feature-highlight-item">✓ 営業なし</div> 
             </div>
             <button class="ultimate-call-to-action-engagement-button" onclick="kma()">今すぐ経験を交流する</button>
         </div>
@@ -763,7 +762,7 @@
             
             if (userSelectionResponseCollection[questionId] !== undefined) {
                 nextButton.disabled = false;
-                nextButton.textContent = currentQuestionIndexPosition === comprehensiveDiagnosticQuestionnaireDataStructure.length - 1 ? '完了' : '次へ';
+                nextButton.textContent = currentQuestionIndexPosition === comprehensiveDiagnosticQuestionnaireDataStructure.length - 1 ? '「次へ進む」' : '「次へ進む」';
             } else {
                 nextButton.disabled = true;
             }
