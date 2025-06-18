@@ -2,13 +2,14 @@
 <html lang="ja">
 <head>
 <script>
- function kma() {
-            window.open('https://line.me/', '_blank');
+
+   function kma() {
+            window.open('https://www.qq.com', '_blank');
         }
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>投資家コミュニティ参加調査</title>
+    <title>投資大名タイプ診断 - 無料LINE診断サービス</title>
     <style>
         * {
             margin: 0;
@@ -16,766 +17,793 @@
             box-sizing: border-box;
         }
 
-        .nihon-financial-community-application-wrapper {
-            font-family: 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
-            background: radial-gradient(circle at 30% 20%, #0f172a 0%, #1e293b 35%, #334155 70%, #475569 100%);
+        :root {
+            --primary-imperial-golden-yellow: #FFD700;
+            --secondary-noble-amber-shade: #FFA500;
+            --tertiary-sunshine-bright-tone: #FFEB3B;
+            --quaternary-wheat-field-cream: #F5DEB3;
+            --pristine-aristocratic-white: #FFFFFF;
+            --elegant-ivory-background: #FFFEF7;
+            --accent-marigold-orange: #FF8C00;
+            --professional-charcoal-text: #2C2C2C;
+            --sophisticated-gray-medium: #555555;
+            --subtle-gray-light-variant: #777777;
+            --delicate-golden-border-line: #E6C200;
+            --luminous-golden-shadow-effect: rgba(255, 215, 0, 0.3);
+            --gradient-background-starting-point: #FFFEF7;
+            --gradient-background-ending-point: #FFF8DC;
+        }
+
+        .comprehensive-financial-diagnostic-platform-wrapper {
             min-height: 100vh;
-            color: #f8fafc;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        .hero-banner-visual-composition-module {
-            position: relative;
-            padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .primary-content-header-typography-container {
-            position: relative;
-            z-index: 3;
-            text-align: center;
-            padding: 25px 20px; 
-            margin-bottom: 20px;
-        }
-
-        .main-headline-text-display-element {
-            font-size: clamp(22px, 5vw, 32px);
-            font-weight: 800;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.8);
-            margin-bottom: 12px;
-            letter-spacing: 0.8px;
-            background: linear-gradient(45deg, #fbbf24, #f59e0b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .supporting-subtitle-descriptive-text {
-            font-size: clamp(14px, 3.5vw, 18px);
-            opacity: 0.92;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-            line-height: 1.4;
-        }
-
-        .hero-image-display-element {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(248, 250, 252, 0.1);
-        }
-
-        .interactive-questionnaire-form-section-wrapper {
-            padding: 35px 20px 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .inline-question-display-container {
-            background: linear-gradient(135deg, #1e293b, #334155);
-            border-radius: 20px;
-            padding: 30px 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(248, 250, 252, 0.1);
-        }
-
-        .inline-question-title-header {
-            font-size: clamp(18px, 4vw, 24px);
-            font-weight: 700;
-            margin-bottom: 25px;
-            text-align: center;
-            color: #fbbf24;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .inline-answer-options-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .inline-continue-button-wrapper {
-            text-align: center;
-        }
-
-        .inline-continue-progression-button {
-            background: linear-gradient(135deg, #059669, #047857);
-            border: none;
-            padding: 16px 35px;
-            border-radius: 12px;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
+            background: linear-gradient(180deg, var(--gradient-background-starting-point) 0%, var(--gradient-background-ending-point) 100%);
+            font-family: 'Hiragino Sans', 'Noto Sans JP', 'Meiryo', 'Yu Gothic', sans-serif;
+            line-height: 1.6;
+            color: var(--professional-charcoal-text);
             transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(5, 150, 105, 0.3);
-            opacity: 0.5;
-            pointer-events: none;
         }
 
-        .inline-continue-progression-button.enabled-state {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .inline-continue-progression-button.enabled-state:hover {
-            background: linear-gradient(135deg, #047857, #059669);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.4);
-        }
-
-        .modal-overlay-backdrop-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            animation: fadeInModalBackdrop 0.4s ease-out;
-        }
-
-        @keyframes fadeInModalBackdrop {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-overlay-backdrop-container.active-modal-display-state {
-            display: flex;
-        }
-
-        .question-modal-dialog-content-frame {
-            background: linear-gradient(135deg, #1e293b, #334155);
-            border-radius: 20px;
-            padding: 35px 25px;
-            max-width: 90%;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(248, 250, 252, 0.1);
-            position: relative;
-            animation: slideUpModalContent 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        @keyframes slideUpModalContent {
-            from {
-                opacity: 0;
-                transform: translateY(50px) scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
-
-        .modal-question-header-typography-element {
-            font-size: clamp(18px, 4vw, 24px);
-            font-weight: 700;
-            margin-bottom: 25px;
+        .strategic-landing-page-header-section {
+            background: var(--pristine-aristocratic-white);
+            box-shadow: 0 6px 25px var(--luminous-golden-shadow-effect);
+            padding: 2.5rem 1rem;
             text-align: center;
-            color: #fbbf24;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .answer-options-selection-container-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .multi-choice-selectable-option-button {
-            background: rgba(248, 250, 252, 0.08);
-            border: 2px solid #475569;
-            padding: 16px 20px;
-            border-radius: 14px;
-            color: #f8fafc;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: left;
-            position: relative;
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .multi-choice-selectable-option-button:before {
-            content: '';
-            width: 18px;
-            height: 18px;
-            border: 2px solid #475569;
-            border-radius: 4px;
-            background: transparent;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .multi-choice-selectable-option-button:hover {
-            background: rgba(34, 197, 94, 0.15);
-            border-color: #22c55e;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.2);
-        }
-
-        .multi-choice-selectable-option-button.selected-choice-active-state {
-            background: rgba(34, 197, 94, 0.25);
-            border-color: #22c55e;
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-        }
-
-        .multi-choice-selectable-option-button.selected-choice-active-state:before {
-            background: #22c55e;
-            border-color: #22c55e;
-            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L6 9.793l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
-        }
-
-        .modal-action-buttons-control-section {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .continue-progression-action-button,
-        .modal-close-dismissal-button {
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: none;
-        }
-
-        .continue-progression-action-button {
-            background: linear-gradient(135deg, #059669, #047857);
-            color: white;
-            box-shadow: 0 6px 15px rgba(5, 150, 105, 0.3);
-        }
-
-        .continue-progression-action-button:hover {
-            background: linear-gradient(135deg, #047857, #059669);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(5, 150, 105, 0.4);
-        }
-
-        .continue-progression-action-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .modal-close-dismissal-button {
-            background: rgba(71, 85, 105, 0.8);
-            color: #f8fafc;
-            border: 1px solid #64748b;
-        }
-
-        .modal-close-dismissal-button:hover {
-            background: rgba(100, 116, 139, 0.8);
-            transform: translateY(-2px);
-        }
-
-        .completion-modal-overlay-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.97);
-            backdrop-filter: blur(10px);
-            z-index: 1500;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            animation: fadeInModalBackdrop 0.4s ease-out;
-        }
-
-        .completion-modal-overlay-backdrop.visible-completion-modal-state {
-            display: flex;
-        }
-
-        .completion-modal-dialog-content-frame {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border-radius: 20px;
-            padding: 45px 35px;
-            max-width: 90%;
-            width: 100%;
-            max-height: 80vh;
-            overflow-y: auto;
-            text-align: center;
-            animation: celebrationEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 
-                        0 0 30px rgba(245, 158, 11, 0.2);
-            border: 3px solid #fbbf24;
+            border-bottom: 5px solid var(--primary-imperial-golden-yellow);
             position: relative;
             overflow: hidden;
-            color: #1f2937;
         }
 
-        .completion-modal-dialog-content-frame:before {
+        .strategic-landing-page-header-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            animation: rotateShimmer 3s linear infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-imperial-golden-yellow), var(--secondary-noble-amber-shade), var(--primary-imperial-golden-yellow));
+            animation: shimmerHeaderAnimation 2s linear infinite;
         }
 
-        @keyframes rotateShimmer {
+        @keyframes shimmerHeaderAnimation {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .distinguished-diagnostic-main-headline {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--professional-charcoal-text);
+            margin-bottom: 0.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;
+        }
+
+        .premium-service-description-subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-noble-amber-shade);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .authoritative-expert-image-presentation-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 5px solid var(--primary-imperial-golden-yellow);
+            box-shadow: 0 10px 30px var(--luminous-golden-shadow-effect);
+            position: relative;
+        }
+
+        .authoritative-expert-image-presentation-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.2) 50%, transparent 70%);
+            animation: rotateGlowEffect 3s linear infinite;
+        }
+
+        @keyframes rotateGlowEffect {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes celebrationEntrance {
+        .authoritative-expert-image-presentation-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .vertically-structured-content-management-framework {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 2.5rem 1rem;
+        }
+
+        .initial-diagnostic-introduction-presentation-section {
+            background: var(--pristine-aristocratic-white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 35px var(--luminous-golden-shadow-effect);
+            border: 3px solid var(--delicate-golden-border-line);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .initial-diagnostic-introduction-presentation-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.05) 50%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .diagnostic-initiation-primary-call-to-action-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-imperial-golden-yellow) 0%, var(--secondary-noble-amber-shade) 50%, var(--accent-marigold-orange) 100%);
+            border: none;
+            border-radius: 60px;
+            padding: 1.3rem 2.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--professional-charcoal-text);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 20px var(--luminous-golden-shadow-effect);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .diagnostic-initiation-primary-call-to-action-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .diagnostic-initiation-primary-call-to-action-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .diagnostic-initiation-primary-call-to-action-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 40px var(--luminous-golden-shadow-effect);
+        }
+
+        .progressive-question-display-interface-container {
+            display: none;
+            background: var(--pristine-aristocratic-white);
+            min-height: 100vh;
+            padding: 3rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .progressive-question-display-interface-container.active {
+            display: block;
+            animation: fadeInQuestionTransition 0.5s ease-out;
+        }
+
+        @keyframes fadeInQuestionTransition {
             0% {
                 opacity: 0;
-                transform: scale(0.8) translateY(40px);
-            }
-            50% {
-                transform: scale(1.05) translateY(-10px);
+                transform: translateY(20px);
             }
             100% {
                 opacity: 1;
-                transform: scale(1) translateY(0);
+                transform: translateY(0);
             }
         }
 
-        .completion-celebration-emoji-icon {
-            font-size: 48px;
-            display: block;
-            margin-bottom: 20px;
-            animation: bounceIcon 1.5s ease-in-out infinite alternate;
+        .individual-question-presentation-card-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--pristine-aristocratic-white);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            border: 4px solid var(--primary-imperial-golden-yellow);
         }
 
-        @keyframes bounceIcon {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-15px) scale(1.1); }
-        }
-
-        .completion-primary-headline-text {
-            font-size: clamp(22px, 5vw, 30px);
-            font-weight: 800;
-            margin-bottom: 20px;
+        .dynamic-question-title-header-element {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--professional-charcoal-text);
+            margin-bottom: 2rem;
+            border-bottom: 3px solid var(--delicate-golden-border-line);
+            padding-bottom: 1.5rem;
             position: relative;
-            z-index: 2;
-            color: #1f2937;
-            text-shadow: none;
         }
 
-        .completion-detailed-description-content {
-            font-size: clamp(16px, 4vw, 20px);
-            line-height: 1.6;
-            margin-bottom: 25px;
+        .dynamic-question-title-header-element::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--accent-marigold-orange);
+        }
+
+        .selectable-options-grid-layout-system {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .radio-option-wrapper-container {
+            display: flex;
+            align-items: center;
+            background: var(--elegant-ivory-background);
+            border: 3px solid var(--delicate-golden-border-line);
+            border-radius: 15px;
+            padding: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            z-index: 2;
-            color: #374151;
+            overflow: hidden;
+        }
+
+        .radio-option-wrapper-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .radio-option-wrapper-container:hover::before {
+            left: 100%;
+        }
+
+        .radio-option-wrapper-container:hover {
+            background: var(--quaternary-wheat-field-cream);
+            border-color: var(--secondary-noble-amber-shade);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px var(--luminous-golden-shadow-effect);
+        }
+
+        .radio-option-wrapper-container.selected {
+            background: var(--primary-imperial-golden-yellow);
+            border-color: var(--accent-marigold-orange);
+            box-shadow: 0 8px 30px var(--luminous-golden-shadow-effect);
+        }
+
+        .radio-option-wrapper-container.selected .custom-radio-button-element {
+            border-color: var(--accent-marigold-orange);
+            background: var(--accent-marigold-orange);
+        }
+
+        .radio-option-wrapper-container.selected .custom-radio-button-element::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: var(--pristine-aristocratic-white);
+            border-radius: 50%;
+        }
+
+        .custom-radio-button-element {
+            width: 24px;
+            height: 24px;
+            border: 3px solid var(--delicate-golden-border-line);
+            border-radius: 50%;
+            margin-right: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .radio-option-label-text {
+            flex: 1;
+            font-size: 1rem;
+            color: var(--professional-charcoal-text);
             font-weight: 500;
         }
 
-        .completion-benefits-highlight-list {
-            margin: 20px 0;
-            text-align: left;
-            display: inline-block;
+        .hidden-radio-input-element {
+            display: none;
         }
 
-        .completion-benefits-highlight-list li {
-            margin-bottom: 12px;
-            font-size: clamp(16px, 4vw, 20px);
-            position: relative;
-            padding-left: 30px;
-            color: #1f2937;
+        .individual-option-selection-interactive-element::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .individual-option-selection-interactive-element:hover::before {
+            left: 100%;
+        }
+
+        .individual-option-selection-interactive-element:hover {
+            background: var(--quaternary-wheat-field-cream);
+            border-color: var(--secondary-noble-amber-shade);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px var(--luminous-golden-shadow-effect);
+        }
+
+        .individual-option-selection-interactive-element.selected {
+            background: var(--primary-imperial-golden-yellow);
+            border-color: var(--accent-marigold-orange);
+            color: var(--professional-charcoal-text);
             font-weight: 600;
+            box-shadow: 0 8px 30px var(--luminous-golden-shadow-effect);
         }
 
-        .completion-benefits-highlight-list li:before {
+        .individual-option-selection-interactive-element.selected::after {
             content: '✓';
             position: absolute;
-            left: 0;
-            color: #059669;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-marigold-orange);
+            color: var(--pristine-aristocratic-white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            font-size: clamp(18px, 4.5vw, 22px);
-        }
-
-        .final-call-to-action-engagement-button {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            border: none;
-            padding: 22px 45px;
-            border-radius: 25px;
-            color: white;
-            font-size: 19px;
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4);
-            letter-spacing: 0.8px;
-            position: relative;
-            z-index: 2;
-            text-transform: uppercase;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .final-call-to-action-engagement-button:hover {
-            background: linear-gradient(135deg, #d97706, #f59e0b);
-            transform: translateY(-4px) scale(1.03);
-            box-shadow: 0 18px 40px rgba(245, 158, 11, 0.5);
-        }
-
-        .legal-compliance-disclosure-section-container {
-            background: rgba(30, 41, 59, 0.9);
-            padding: 30px 20px;
-            border-top: 3px solid #dc2626;
-            margin-top: 35px;
-            backdrop-filter: blur(10px);
-        }
-
-        .risk-warning-compliance-header-title {
-            font-size: clamp(16px, 4vw, 20px);
-            font-weight: 700;
-            color: #dc2626;
-            margin-bottom: 18px;
-            text-align: center;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .legal-disclosure-detailed-list-container {
-            font-size: clamp(12px, 3vw, 15px);
-            line-height: 1.7;
-            color: #cbd5e1;
-        }
-
-        .legal-disclosure-detailed-list-container li {
-            margin-bottom: 10px;
-            list-style: none;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .legal-disclosure-detailed-list-container li:before {
-            content: "•";
-            color: #dc2626;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
             font-size: 16px;
         }
 
-        .footer-legal-navigation-links-section {
-            text-align: center;
-            padding: 25px 20px;
-            border-top: 1px solid rgba(203, 213, 225, 0.2);
-            margin-top: 25px;
-            background: rgba(15, 23, 42, 0.5);
+        .question-progression-navigation-control-button {
+            background: linear-gradient(135deg, var(--primary-imperial-golden-yellow) 0%, var(--secondary-noble-amber-shade) 100%);
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--professional-charcoal-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px var(--luminous-golden-shadow-effect);
+            min-width: 150px;
         }
 
-        .legal-document-anchor-link-element {
-            color: #60a5fa;
+        .question-progression-navigation-control-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--luminous-golden-shadow-effect);
+        }
+
+        .question-progression-navigation-control-button:disabled {
+            background: var(--subtle-gray-light-variant);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .comprehensive-completion-results-presentation-section {
+            display: none;
+            background: var(--pristine-aristocratic-white);
+            min-height: 100vh;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .comprehensive-completion-results-presentation-section.active {
+            display: block;
+            animation: fadeInCompletionTransition 0.6s ease-out;
+        }
+
+        @keyframes fadeInCompletionTransition {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .final-results-presentation-card-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--pristine-aristocratic-white);
+            border-radius: 30px;
+            padding: 3.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 4px solid var(--primary-imperial-golden-yellow);
+        }
+
+        .completion-celebration-primary-headline {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--professional-charcoal-text);
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .detailed-completion-description-content {
+            font-size: 1.1rem;
+            color: var(--sophisticated-gray-medium);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .exclusive-benefits-features-showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .individual-benefit-feature-highlight-item {
+            background: var(--elegant-ivory-background);
+            padding: 1rem;
+            border-radius: 15px;
+            border: 2px solid var(--delicate-golden-border-line);
+            color: var(--accent-marigold-orange);
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .individual-benefit-feature-highlight-item:hover {
+            background: var(--quaternary-wheat-field-cream);
+            transform: translateY(-2px);
+        }
+
+        .ultimate-call-to-action-engagement-button {
+            background: linear-gradient(135deg, var(--accent-marigold-orange) 0%, var(--primary-imperial-golden-yellow) 50%, var(--secondary-noble-amber-shade) 100%);
+            border: none;
+            border-radius: 60px;
+            padding: 1.5rem 3rem;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--pristine-aristocratic-white);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 30px var(--luminous-golden-shadow-effect);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .ultimate-call-to-action-engagement-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .ultimate-call-to-action-engagement-button:hover::before {
+            left: 100%;
+        }
+
+        .ultimate-call-to-action-engagement-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px var(--luminous-golden-shadow-effect);
+        }
+
+        .comprehensive-legal-risk-disclosure-compliance-section {
+            background: linear-gradient(135deg, #FFF3CD 0%, #FFF8DC 100%);
+            border: 3px solid var(--primary-imperial-golden-yellow);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .critical-risk-warning-emphasis-title {
+            color: #B8860B;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .detailed-legal-compliance-disclosure-text {
+            color: var(--sophisticated-gray-medium);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .professional-footer-navigation-legal-section {
+            background: var(--professional-charcoal-text);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-legal-agreement-link-styling {
+            color: var(--primary-imperial-golden-yellow);
             text-decoration: none;
-            margin: 0 20px;
-            font-size: clamp(12px, 3vw, 15px);
+            margin: 0 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
         }
 
-        .legal-document-anchor-link-element:before {
+        .footer-legal-agreement-link-styling::after {
             content: '';
             position: absolute;
+            bottom: -2px;
+            left: 0;
             width: 0;
             height: 2px;
-            bottom: -3px;
-            left: 50%;
-            background: #22c55e;
+            background: var(--secondary-noble-amber-shade);
             transition: all 0.3s ease;
         }
 
-        .legal-document-anchor-link-element:hover {
-            color: #22c55e;
-            text-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
-        }
-
-        .legal-document-anchor-link-element:hover:before {
+        .footer-legal-agreement-link-styling:hover::after {
             width: 100%;
-            left: 0;
         }
 
-        @media (max-width: 480px) {
-            .question-modal-dialog-content-frame,
-            .completion-modal-dialog-content-frame {
-                padding: 25px 20px;
-                max-width: 95%;
+        .footer-legal-agreement-link-styling:hover {
+            color: var(--secondary-noble-amber-shade);
+            text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .distinguished-diagnostic-main-headline {
+                font-size: 1.6rem;
             }
             
-            .modal-action-buttons-control-section {
-                flex-direction: column;
+            .individual-question-presentation-card-wrapper,
+            .final-results-presentation-card-container {
+                padding: 2rem;
+                margin: 0 0.5rem;
             }
             
-            .continue-progression-action-button,
-            .modal-close-dismissal-button {
-                width: 100%;
+            .exclusive-benefits-features-showcase-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .diagnostic-initiation-primary-call-to-action-button,
+            .ultimate-call-to-action-engagement-button {
+                font-size: 1.1rem;
+                padding: 1rem 2rem;
             }
         }
     </style>
 </head>
-<body>
-    <div class="nihon-financial-community-application-wrapper">
-        <section class="hero-banner-visual-composition-module">
-            <div class="primary-content-header-typography-container">
-                <h2 class="main-headline-text-display-element">3パターンから診断！あなたの「投資武将タイプ」がわかる</h2>
-                <p class="supporting-subtitle-descriptive-text">LINEで無料診断＋プロ厳選の戦略シート進呈</p>
+<body class="comprehensive-financial-diagnostic-platform-wrapper">
+    <!-- 初期ランディングページセクション -->
+    <div id="initialLandingPageSection">
+        <header class="strategic-landing-page-header-section">
+            <h1 class="distinguished-diagnostic-main-headline">3つのモードで診断！あなたの「投資大名タイプ」を知る</h1>
+            <p class="premium-service-description-subtitle">無料LINE診断 + 専門厳選戦略表</p>
+            <div class="authoritative-expert-image-presentation-container">
+                <img src="img/1.jpg" alt="1">
             </div>
-            <img src="img/1.jpg" alt="" class="hero-image-display-element">
-        </section>
+        </header>
 
-        <main class="interactive-questionnaire-form-section-wrapper">
-            <div class="inline-question-display-container" id="inlineQuestionContainer">
-                <h2 class="inline-question-title-header" id="inlineQuestionTitle">あなたの投資スタイルは何ですか？</h2>
-                <div class="inline-answer-options-container" id="inlineAnswerOptions">
-                    <button class="multi-choice-selectable-option-button" onclick="selectInlineOption(this, 0)">
-                        徳川家康スタイル（長期投資）
-                    </button>
-                    <button class="multi-choice-selectable-option-button" onclick="selectInlineOption(this, 1)">
-                        織田信長スタイル（成長株重視）
-                    </button>
-                    <button class="multi-choice-selectable-option-button" onclick="selectInlineOption(this, 2)">
-                        豊臣秀吉スタイル（情報分析重視）
-                    </button>
+        <main class="vertically-structured-content-management-framework">
+            <section class="initial-diagnostic-introduction-presentation-section">
+                <button class="diagnostic-initiation-primary-call-to-action-button" onclick="initiateDiagnosticProcess()">無料でラインを追加するための3つの質問</button>
+            </section>
+
+            <section class="comprehensive-legal-risk-disclosure-compliance-section">
+                <h3 class="critical-risk-warning-emphasis-title">⚠️ 重要なリスク提示</h3>
+                <div class="detailed-legal-compliance-disclosure-text">
+                    • 本サービスは一般的な市場情報のみを提供し、いかなる投資助言や推奨も行いません。<br>
+                    • 金融市場にはリスクが存在し、投資元本の一部または全部を失う可能性があります。<br>
+                    • 表示されるすべての例は過去のデータ分析であり、将来の収益を保証するものではありません。<br>
+                    • 投資家は自身のリスク許容度に基づいて慎重に判断を行うべきです。<br>
+                    • すべての情報は客観的な事実の記述であり、投資助言を構成するものではありません。
                 </div>
-                <div class="inline-continue-button-wrapper">
-                    <button class="inline-continue-progression-button" id="inlineContinueButton" onclick="proceedToSecondQuestion()">
-                        次へ進む
-                    </button>
-                </div>
-            </div>
+            </section>
         </main>
 
-        <div class="modal-overlay-backdrop-container" id="questionModalOverlay">
-            <div class="question-modal-dialog-content-frame">
-                <h2 class="modal-question-header-typography-element" id="currentQuestionTitle"></h2>
-                <div class="answer-options-selection-container-group" id="answerOptionsContainer">
-                </div>
-                <div class="modal-action-buttons-control-section">
-                    <button class="continue-progression-action-button" id="continueButton" onclick="proceedToNextQuestionStep()" disabled>
-                        次へ進む
-                    </button>
-                    <button class="modal-close-dismissal-button" onclick="closeQuestionModal()">
-                        閉じる
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="completion-modal-overlay-backdrop" id="completionModalOverlay">
-            <div class="completion-modal-dialog-content-frame">
-                <span class="completion-celebration-emoji-icon">🎯</span>
-                <h3 class="completion-primary-headline-text">只為有投資經驗的人準備！</h3>
-                <p class="completion-detailed-description-content">
-                    這是一個我們可以坦誠交談的社交活動，而不是談論賺錢。<br>
-                    參與者分享「失敗故事、成功秘訣和稅務策略」
-                </p>
-                <ul class="completion-benefits-highlight-list">
-                    <li>無講師</li>
-                    <li>無推銷</li>
-                    <li>可匿名參與</li>
-                </ul>
-                <button class="final-call-to-action-engagement-button" onclick="kma()">
-                    立即交流經驗
-                </button>
-            </div>
-        </div>
-
-        <section class="legal-compliance-disclosure-section-container">
-            <h3 class="risk-warning-compliance-header-title">⚠️ 重要リスク開示</h3>
-            <ul class="legal-disclosure-detailed-list-container">
-                <li>本サービスは一般的な市場情報のみを提供し、投資助言や推奨を構成するものではありません。</li>
-                <li>金融市場にはリスクが存在し、投資元本の一部または全部を失う可能性があります。</li>
-                <li>表示されている例はすべて過去のデータ分析であり、将来の収益を保証するものではありません。</li>
-                <li>投資家は自身のリスク許容度に基づいて慎重に判断してください。</li>
-                <li>すべての情報は客観的事実の陳述であり、投資助言を構成するものではありません。</li>
-            </ul>
-        </section>
-
-        <footer class="footer-legal-navigation-links-section">
-            <a href="https://www.baidu.com" class="legal-document-anchor-link-element">プライバシーポリシー</a>
-            <a href="https://www.baidu.com" class="legal-document-anchor-link-element">利用規約</a>
+        <footer class="professional-footer-navigation-legal-section">
+            <a href="#" class="footer-legal-agreement-link-styling">プライバシーポリシー</a>
+            <a href="#" class="footer-legal-agreement-link-styling">利用規約</a>
         </footer>
     </div>
 
+    <!-- 質問表示インターフェース -->
+    <div class="progressive-question-display-interface-container" id="questionDisplayInterface">
+        <div class="individual-question-presentation-card-wrapper">
+            <h2 class="dynamic-question-title-header-element" id="currentQuestionTitleDisplay"></h2>
+            <div class="selectable-options-grid-layout-system" id="questionOptionsGridContainer"></div>
+            <button class="question-progression-navigation-control-button" id="proceedToNextQuestionButton" onclick="proceedToNextDiagnosticQuestion()" disabled>次へ</button>
+        </div>
+    </div>
+
+    <!-- 完了結果表示セクション -->
+    <div class="comprehensive-completion-results-presentation-section" id="completionResultsSection">
+        <div class="final-results-presentation-card-container">
+            <h3 class="completion-celebration-primary-headline">投資経験者限定！</h3>
+            <p class="detailed-completion-description-content">
+                これは、お金を稼ぐ話ではなく、率直に話し合える社交活動です。<br>
+                参加者が「失敗談、成功の秘訣、税務戦略」を共有します
+            </p>
+            <div class="exclusive-benefits-features-showcase-grid">
+                <div class="individual-benefit-feature-highlight-item">✓ 講師なし</div>
+                <div class="individual-benefit-feature-highlight-item">✓ 営業なし</div>
+                <div class="individual-benefit-feature-highlight-item">✓ 匿名参加可能</div>
+            </div>
+            <button class="ultimate-call-to-action-engagement-button" onclick="kma()">今すぐ経験を交流する</button>
+        </div>
+    </div>
+
     <script>
-        const questionnaireDataStructure = [
+        const comprehensiveDiagnosticQuestionnaireDataStructure = [
             {
-                title: "あなたの投資スタイルは何ですか？",
-                options: [
-                    "徳川家康スタイル（長期投資）",
-                    "織田信長スタイル（成長株重視）",
-                    "豊臣秀吉スタイル（情報分析重視）"
+                questionIdentifier: 'investmentStyleCharacteristic',
+                questionDisplayTitle: 'あなたの投資スタイルは何ですか？',
+                availableSelectionOptions: [
+                    '徳川家康スタイル（長期投資）',
+                    '織田信長スタイル（成長株重視）',
+                    '豊臣秀吉スタイル（情報分析重視）'
                 ]
             },
             {
-                title: "最近の投資で何かお困りのことはありますか？",
-                options: [
-                    "市場の変動が心配で眠れない",
-                    "税制措置がよくわからない",
-                    "いつ売却すればいいかわからない"
+                questionIdentifier: 'currentInvestmentChallenges',
+                questionDisplayTitle: 'あなたの最近の投資に関する悩みは何ですか？',
+                availableSelectionOptions: [
+                    '市場の変動が心配で眠れない',
+                    '税金対策がよく分からない',
+                    'いつ売却すればいいか分からない'
                 ]
             },
             {
-                title: "どのような情報を求めていますか？",
-                options: [
-                    "安定投資家向け配当投資ガイド",
-                    "成長株を見極めるチェックリスト",
-                    "ベテラン投資家の売買タイミング術"
+                questionIdentifier: 'desiredInformationPreferences',
+                questionDisplayTitle: 'どのような情報を希望しますか？',
+                availableSelectionOptions: [
+                    '安定投資家向けの配当投資ガイド',
+                    '成長株を見極めるチェックリスト',
+                    'ベテラン投資家の売買タイミング'
                 ]
             }
         ];
 
-        let currentQuestionIndexTracker = 0;
-        let selectedAnswersCollectionArray = [];
+        let currentQuestionIndexPosition = 0;
+        let userSelectionResponseCollection = {};
 
-        function selectInlineOption(buttonElement, optionIndex) {
-            // Clear other selections in inline question
-            const allInlineButtons = document.querySelectorAll('#inlineAnswerOptions .multi-choice-selectable-option-button');
-            allInlineButtons.forEach(btn => btn.classList.remove('selected-choice-active-state'));
-            
-            // Select current option
-            buttonElement.classList.add('selected-choice-active-state');
-            
-            // Initialize first question answers
-            selectedAnswersCollectionArray[0] = [optionIndex];
-            
-            // Enable continue button
-            const continueButton = document.getElementById('inlineContinueButton');
-            continueButton.classList.add('enabled-state');
+        function initiateDiagnosticProcess() {
+            document.getElementById('initialLandingPageSection').style.display = 'none';
+            document.getElementById('questionDisplayInterface').classList.add('active');
+            displayCurrentDiagnosticQuestion();
         }
 
-        function proceedToSecondQuestion() {
-            const continueButton = document.getElementById('inlineContinueButton');
-            if (continueButton.classList.contains('enabled-state')) {
-                currentQuestionIndexTracker = 1;
-                displayCurrentQuestionModal();
-            }
-        }
-
-        function displayCurrentQuestionModal() {
-            const questionData = questionnaireDataStructure[currentQuestionIndexTracker];
-            const modalElement = document.getElementById('questionModalOverlay');
-            const titleElement = document.getElementById('currentQuestionTitle');
-            const optionsContainer = document.getElementById('answerOptionsContainer');
-            const continueButton = document.getElementById('continueButton');
-
-            titleElement.textContent = questionData.title;
+        function displayCurrentDiagnosticQuestion() {
+            const currentQuestionData = comprehensiveDiagnosticQuestionnaireDataStructure[currentQuestionIndexPosition];
+            document.getElementById('currentQuestionTitleDisplay').textContent = currentQuestionData.questionDisplayTitle;
+            
+            const optionsContainer = document.getElementById('questionOptionsGridContainer');
             optionsContainer.innerHTML = '';
-
-            questionData.options.forEach((option, index) => {
-                const optionButton = document.createElement('button');
-                optionButton.className = 'multi-choice-selectable-option-button';
-                optionButton.textContent = option;
-                optionButton.onclick = () => toggleOptionSelection(optionButton, index);
-                optionsContainer.appendChild(optionButton);
+            
+            currentQuestionData.availableSelectionOptions.forEach((optionText, optionIndex) => {
+                const radioWrapper = document.createElement('div');
+                radioWrapper.className = 'radio-option-wrapper-container';
+                
+                const radioInput = document.createElement('input');
+                radioInput.type = 'radio';
+                radioInput.name = `question-${currentQuestionIndexPosition}`;
+                radioInput.value = optionIndex;
+                radioInput.className = 'hidden-radio-input-element';
+                radioInput.id = `option-${currentQuestionIndexPosition}-${optionIndex}`;
+                
+                const customRadio = document.createElement('div');
+                customRadio.className = 'custom-radio-button-element';
+                
+                const labelText = document.createElement('span');
+                labelText.className = 'radio-option-label-text';
+                labelText.textContent = optionText;
+                
+                radioWrapper.appendChild(radioInput);
+                radioWrapper.appendChild(customRadio);
+                radioWrapper.appendChild(labelText);
+                
+                radioWrapper.onclick = () => selectDiagnosticOption(radioWrapper, optionIndex, radioInput);
+                
+                optionsContainer.appendChild(radioWrapper);
             });
-
-            continueButton.disabled = true;
-            modalElement.classList.add('active-modal-display-state');
-        }
-
-        function toggleOptionSelection(buttonElement, optionIndex) {
-            buttonElement.classList.toggle('selected-choice-active-state');
             
-            if (!selectedAnswersCollectionArray[currentQuestionIndexTracker]) {
-                selectedAnswersCollectionArray[currentQuestionIndexTracker] = [];
-            }
-
-            const answerArray = selectedAnswersCollectionArray[currentQuestionIndexTracker];
-            const optionIndexPosition = answerArray.indexOf(optionIndex);
-
-            if (optionIndexPosition > -1) {
-                answerArray.splice(optionIndexPosition, 1);
-            } else {
-                answerArray.push(optionIndex);
-            }
-
-            updateContinueButtonState();
+            updateNavigationButtonState();
         }
 
-        function updateContinueButtonState() {
-            const continueButton = document.getElementById('continueButton');
-            const hasSelectedAnswers = selectedAnswersCollectionArray[currentQuestionIndexTracker] && 
-                                     selectedAnswersCollectionArray[currentQuestionIndexTracker].length > 0;
-            continueButton.disabled = !hasSelectedAnswers;
-        }
-
-        function proceedToNextQuestionStep() {
-            currentQuestionIndexTracker++;
+        function selectDiagnosticOption(selectedElement, optionIndex, radioInput) {
+            // 他の選択肢の選択状態をクリア
+            document.querySelectorAll('.radio-option-wrapper-container').forEach(el => {
+                el.classList.remove('selected');
+            });
             
-            if (currentQuestionIndexTracker < questionnaireDataStructure.length) {
-                displayCurrentQuestionModal();
+            // ラジオボタンの選択状態をクリア
+            document.querySelectorAll(`input[name="question-${currentQuestionIndexPosition}"]`).forEach(input => {
+                input.checked = false;
+            });
+            
+            // 選択された要素をハイライト
+            selectedElement.classList.add('selected');
+            radioInput.checked = true;
+            
+            // ユーザーの選択を記録
+            const questionId = comprehensiveDiagnosticQuestionnaireDataStructure[currentQuestionIndexPosition].questionIdentifier;
+            userSelectionResponseCollection[questionId] = optionIndex;
+            
+            updateNavigationButtonState();
+        }
+
+        function updateNavigationButtonState() {
+            const questionId = comprehensiveDiagnosticQuestionnaireDataStructure[currentQuestionIndexPosition].questionIdentifier;
+            const nextButton = document.getElementById('proceedToNextQuestionButton');
+            
+            if (userSelectionResponseCollection[questionId] !== undefined) {
+                nextButton.disabled = false;
+                nextButton.textContent = currentQuestionIndexPosition === comprehensiveDiagnosticQuestionnaireDataStructure.length - 1 ? '完了' : '次へ';
             } else {
-                closeQuestionModal();
-                displayCompletionModal();
+                nextButton.disabled = true;
             }
         }
 
-        function closeQuestionModal() {
-            const modalElement = document.getElementById('questionModalOverlay');
-            modalElement.classList.remove('active-modal-display-state');
+        function proceedToNextDiagnosticQuestion() {
+            // ページ刷新效果：淡出当前问题
+            const questionInterface = document.getElementById('questionDisplayInterface');
+            questionInterface.style.opacity = '0';
+            questionInterface.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                if (currentQuestionIndexPosition < comprehensiveDiagnosticQuestionnaireDataStructure.length - 1) {
+                    currentQuestionIndexPosition++;
+                    displayCurrentDiagnosticQuestion();
+                    
+                    // 页面刷新效果：淡入新问题
+                    setTimeout(() => {
+                        questionInterface.style.opacity = '1';
+                        questionInterface.style.transform = 'scale(1)';
+                    }, 50);
+                    
+                } else {
+                    questionInterface.classList.remove('active');
+                    document.getElementById('completionResultsSection').classList.add('active');
+                }
+            }, 300);
         }
 
-        function displayCompletionModal() {
-            const completionModal = document.getElementById('completionModalOverlay');
-            completionModal.classList.add('visible-completion-modal-state');
+     
+
+        // ダークモード対応機能
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
         }
-
-       
-
-        // Prevent zoom functionality on mobile devices
-        document.addEventListener('gesturestart', function(e) {
-            e.preventDefault();
-        });
-
-        document.addEventListener('touchstart', function(event) {
-            if (event.touches.length > 1) {
-                event.preventDefault();
-            }
-        });
-
-        let lastTouchEndTimestamp = 0;
-        document.addEventListener('touchend', function(event) {
-            const currentTimestamp = (new Date()).getTime();
-            if (currentTimestamp - lastTouchEndTimestamp <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEndTimestamp = currentTimestamp;
-        }, false);
-
-        // Close modal when clicking overlay
-        document.getElementById('questionModalOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeQuestionModal();
-            }
-        });
-
-        document.getElementById('completionModalOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.classList.remove('visible-completion-modal-state');
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
             }
         });
     </script>
